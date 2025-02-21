@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Notepad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: lavender; /* Background color: lavender */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: lightyellow; /* Container background: lightyellow */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: mediumvioletred; /* Heading color: mediumvioletred */
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            border: 1px solid lightblue; /* Textarea border color: lightblue */
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            background-color: honeydew; /* Textarea background color: honeydew */
+            color: darkslategray; /* Text color: darkslategray */
+        }
+        .date {
+            font-size: 14px;
+            color: steelblue; /* Date color: steelblue */
+            text-align: right;
+        }
+        .note {
+            font-size: 16px;
+            color: darkgreen; /* Note text color: darkgreen */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple Notepad</h1>
+
+    <!-- Display the current date -->
+    <div class="date" id="current-date"></div>
+
+    <!-- Example of a note -->
+    <p class="note">Here's an example of a note without highlighted text.</p>
+
+    <!-- Textarea for note taking -->
+    <textarea placeholder="Start typing your note here..."></textarea>
+</div>
+
+<script>
+    // Display current date in the "current-date" div
+    const dateElement = document.getElementById('current-date');
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString();
+    dateElement.textContent = `Date: ${formattedDate}`;
+</script>
+
+</body>
+</html>
