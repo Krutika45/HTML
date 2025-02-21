@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightgray;
+            padding: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Countdown Timer</h1>
+    <input type="number" id="timeInput" placeholder="Enter seconds" min="1">
+    <button onclick="startTimer()">Start Timer</button>
+
+    <div class="timer" id="timer">0</div>
+
+    <script>
+        let countdown;
+
+        function startTimer() {
+            const timeInput = document.getElementById("timeInput").value;
+            let time = parseInt(timeInput);
+            if (isNaN(time) || time <= 0) {
+                alert("Please enter a valid number of seconds.");
+                return;
+            }
+            
+            clearInterval(countdown);
+
+            countdown = setInterval(function() {
+                if (time <= 0) {
+                    clearInterval(countdown);
+                    alert("Time's up!");
+                } else {
+                    document.getElementById("timer").innerText = time;
+                    time--;
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
